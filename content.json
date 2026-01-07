@@ -1,0 +1,130 @@
+{
+  "site": {
+    "name": "Dominique E. Thomas",
+    "primaryButtonText": "Book a consultation",
+    "primaryButtonHref": "/contact/",
+    "secondaryButtonText": "Explore services",
+    "secondaryButtonHref": "/service-offerings/",
+    "footerNote": "HR Consulting"
+  },
+  "nav": [
+    { "label": "Home", "href": "/" },
+    { "label": "About", "href": "/about/" },
+    { "label": "Service Offerings", "href": "/service-offerings/" },
+    { "label": "Resources", "href": "/resources/" },
+    { "label": "Contact", "href": "/contact/" }
+  ],
+  "home": {
+    "heroKicker": "People decisions are rarely simple.",
+    "heroHeadline": "Your Dedicated Human Resources Presence When It Matters Most",
+    "heroSubhead": "I work alongside founders and executives to navigate complex moments with clarity, consistency, and care, bringing an experienced HR perspective into the decisions that shape how an organization operates and grows.",
+    "heroImage": "",
+    "servicesTitle": "Ways we can work together",
+    "services": [
+      {
+        "title": "Fractional and Interim HR Leadership",
+        "desc": "Senior level HR leadership embedded in your organization to lead people strategy, manage risk, and guide critical decisions during growth, transition, or uncertainty",
+        "href": "/service-offerings/"
+      },
+      {
+        "title": "Ongoing Advisory Support",
+        "desc": "On demand, trusted HR partnership that provides steady guidance, compliance oversight, and decision support as people challenges arise.",
+        "href": "/service-offerings/"
+      },
+      {
+        "title": "Project Based Engagements",
+        "desc": "Focused, time bound HR initiatives designed to address specific needs, strengthen systems, and deliver clear, measurable outcomes.",
+        "href": "/service-offerings/"
+      }
+    ],
+    "aboutKicker": "HR guidance",
+    "aboutHeadline": "Clear advice, grounded in real world constraints",
+    "aboutBody": "I help leaders navigate complex employee situations, formalize processes, and create practical tools that managers actually use.",
+    "aboutButtonText": "Schedule a consultation",
+    "aboutButtonHref": "/contact/",
+    "aboutImage": "",
+    "resourcesKicker": "Resources",
+    "resourcesHeadline": "Latest insights",
+    "resourcesButtonText": "View all",
+    "resourcesButtonHref": "/resources/",
+    "featuredPosts": [
+      { "title": "Manager basics for performance conversations", "blurb": "A practical structure to reduce avoidance and document well." },
+      { "title": "When an employee complaint is a risk signal", "blurb": "How to assess and respond quickly without overreacting." },
+      { "title": "What to standardize before you hire again", "blurb": "Processes that keep culture consistent while you grow." },
+      { "title": "Investigation hygiene leaders forget", "blurb": "Small moves that prevent big problems later." }
+    ],
+    "signupHeadline": "Stay in the loop",
+    "signupBody": "Monthly ideas, templates, and practical guidance. No spam.",
+    "signupNote": "For now this form does not send. We can connect it to a free form tool when you are ready."
+  },
+  "about": {
+    "kicker": "About",
+    "headline": "Your steady HR presence when it matters most",
+    "body": "Paste your About copy here. Share who you help, how you work, and what clients can expect.",
+    "image": ""
+  },
+  "services": {
+    "kicker": "Service offerings",
+    "headline": "Support that meets the moment",
+    "intro": "Paste your services overview here.",
+    "offers": [
+      {
+        "title": "On call counsel",
+        "desc": "What it is, who it is for, and what outcomes clients get.",
+        "bullets": ["Example scope item", "Example scope item", "Example scope item"]
+      },
+      {
+        "title": "Systems and compliance",
+        "desc": "What it is, who it is for, and what outcomes clients get.",
+        "bullets": ["Example scope item", "Example scope item", "Example scope item"]
+      },
+      {
+        "title": "Training and development",
+        "desc": "What it is, who it is for, and what outcomes clients get.",
+        "bullets": ["Example scope item", "Example scope item", "Example scope item"]
+      }
+    ]
+  },
+  "resources": {
+    "kicker": "Resources",
+    "headline": "Tools, templates, and guidance",
+    "intro": "Paste your resources intro here.",
+    "items": [
+      { "title": "Resource title", "desc": "Short description of what it helps with." },
+      { "title": "Resource title", "desc": "Short description of what it helps with." },
+      { "title": "Resource title", "desc": "Short description of what it helps with." },
+      { "title": "Resource title", "desc": "Short description of what it helps with." }
+    ]
+  },
+  "contact": {
+    "kicker": "Contact",
+    "headline": "Tell me what you are navigating",
+    "body": "Add your preferred contact method here. You can include an email address, a scheduling link, and what response time to expect.",
+    "emailLabel": "Email",
+    "email": "det@dominiqueethomas.com",
+    "schedulerLabel": "Scheduler link",
+    "schedulerHref": "",
+    "schedulerText": "Add your scheduling link"
+  },
+  "portfolio": {
+    "kicker": "Portfolio",
+    "headline": "Selected work",
+    "intro": "This page is not linked in the main menu. Share examples of previous work here.",
+    "projects": [
+      {
+        "title": "Project title",
+        "context": "Client type and situation.",
+        "work": "What you delivered.",
+        "impact": "Outcomes and results.",
+        "image": ""
+      },
+      {
+        "title": "Project title",
+        "context": "Client type and situation.",
+        "work": "What you delivered.",
+        "impact": "Outcomes and results.",
+        "image": ""
+      }
+    ]
+  }
+}
