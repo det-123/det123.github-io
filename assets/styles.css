@@ -233,7 +233,22 @@ p:last-child{ margin-bottom: 0; }
   margin-bottom: 8px;
 }
 
-/* Social proof cards matching the screenshot */
+.quote{
+  border: 1px solid var(--line2);
+  background: #ffffff;
+  padding: 20px;
+}
+
+.quoteText{
+  margin: 0 0 12px 0;
+}
+
+.quoteBy{
+  font-size: 14px;
+  color: var(--muted);
+  margin: 0;
+}
+
 .statsGrid{
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -259,22 +274,6 @@ p:last-child{ margin-bottom: 0; }
 .statText{
   font-size: 14px;
   line-height: 1.7;
-  color: var(--muted);
-  margin: 0;
-}
-
-.quote{
-  border: 1px solid var(--line2);
-  background: #ffffff;
-  padding: 20px;
-}
-
-.quoteText{
-  margin: 0 0 12px 0;
-}
-
-.quoteBy{
-  font-size: 14px;
   color: var(--muted);
   margin: 0;
 }
