@@ -290,5 +290,22 @@
   <div class="container">Dominique E. Thomas 2026</div>
 </footer>
 
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const items = document.querySelectorAll(".accordionItem");
+
+    items.forEach(item => {
+      item.addEventListener("toggle", () => {
+        if (item.open) {
+          items.forEach(other => {
+            if (other !== item) {
+              other.removeAttribute("open");
+            }
+          });
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
