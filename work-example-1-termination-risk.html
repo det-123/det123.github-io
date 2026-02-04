@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Termination Risk Assessment Tool | Dominique E. Thomas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --secondary: #2d2d2d;
+            --accent: #4a4a4a;
+            --light-gray: #f5f5f5;
+            --medium-gray: #e8e8e8;
+            --white: #ffffff;
+            --border: #d0d0d0;
+            --risk-high: #c41e3a;
+            --risk-medium: #ff8c00;
+            --risk-low: #2e8b57;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--primary);
+            background: var(--light-gray);
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header {
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .tool-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .section-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--secondary);
+        }
+
+        .scenario-box {
+            background: var(--light-gray);
+            padding: 2rem;
+            border-left: 4px solid var(--risk-high);
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        .risk-framework {
+            margin: 2rem 0;
+        }
+
+        .risk-category {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+            background: var(--white);
+        }
+
+        .risk-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .risk-category h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        .risk-indicator {
+            padding: 0.4rem 1rem;
+            border-radius: 3px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .risk-high {
+            background: var(--risk-high);
+            color: var(--white);
+        }
+
+        .risk-medium {
+            background: var(--risk-medium);
+            color: var(--white);
+        }
+
+        .risk-low {
+            background: var(--risk-low);
+            color: var(--white);
+        }
+
+        .risk-factors {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .risk-factors li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .risk-factors li:before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .outcome-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .metric-card {
+            padding: 1.5rem;
+            background: var(--light-gray);
+            border-top: 3px solid var(--primary);
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-label {
+            font-size: 0.9rem;
+            color: var(--accent);
+            line-height: 1.4;
+        }
+
+        .implementation-box {
+            background: var(--medium-gray);
+            padding: 2rem;
+            margin: 2rem 0;
+        }
+
+        .implementation-box h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .implementation-steps {
+            list-style: decimal;
+            padding-left: 1.5rem;
+        }
+
+        .implementation-steps li {
+            padding: 0.5rem 0;
+            line-height: 1.6;
+        }
+
+        .footer-note {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .container {
+                padding: 1.5rem;
+            }
+            
+            .tool-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <p class="subtitle">Work Product Example</p>
+            <h1 class="tool-title">Pre-Termination Risk Assessment Tool</h1>
+        </div>
+
+        <div class="section">
+            <div class="section-label">The Business Problem</div>
+            <div class="section-content">
+                <div class="scenario-box">
+                    A venture-backed technology company scaling from 50 to 120 employees terminated 8 underperformers across 6 months. Within 90 days, three filed EEOC complaints alleging discrimination. Their "documentation" consisted of Slack messages, vague performance reviews with no specific examples, and subjective assessments like "not a culture fit." Legal counsel estimated $180,000 in defense costs alone—before any settlement. The VP of Engineering realized too late: every termination decision had been made reactively, with no systematic evaluation of legal defensibility.
+                </div>
+                <p>The company faced mounting pressure to address performance issues quickly as they scaled, but lacked a framework to distinguish between terminations that would withstand legal scrutiny and those that created litigation risk. Each termination consumed 8+ hours of legal review time, delayed critical business decisions, and created anxiety among leadership about "who might sue next."</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">The Solution</div>
+            <div class="section-title">A Pre-Termination Risk Assessment Framework</div>
+            <div class="section-content">
+                <p>I developed a structured decision tool that scores legal defensibility across 12 critical risk factors before any termination proceeds. This framework systematically evaluates documentation quality, protected class considerations, timing issues, comparator treatment, and procedural compliance—translating complex legal concepts into actionable decision points for business leaders.</p>
+                
+                <div class="risk-framework">
+                    <h3 style="margin-bottom: 1.5rem; font-weight: 500;">12 Critical Risk Factors</h3>
+                    
+                    <div class="risk-category">
+                        <div class="risk-category-header">
+                            <h3>Documentation Quality</h3>
+                            <span class="risk-indicator risk-high">High Risk</span>
+                        </div>
+                        <ul class="risk-factors">
+                            <li>Specific, dated examples of performance failures</li>
+                            <li>Written warnings with employee acknowledgment</li>
+                            <li>Performance improvement plan with measurable goals</li>
+                            <li>Contemporary documentation (not retroactive)</li>
+                        </ul>
+                    </div>
+
+                    <div class="risk-category">
+                        <div class="risk-category-header">
+                            <h3>Protected Class Status</h3>
+                            <span class="risk-indicator risk-high">High Risk</span>
+                        </div>
+                        <ul class="risk-factors">
+                            <li>Age 40+ or recent pregnancy/disability disclosure</li>
+                            <li>Recent FMLA leave or accommodation request</li>
+                            <li>Prior complaints of discrimination or harassment</li>
+                            <li>Visible minority status in homogeneous workforce</li>
+                        </ul>
+                    </div>
+
+                    <div class="risk-category">
+                        <div class="risk-category-header">
+                            <h3>Timing & Proximity</h3>
+                            <span class="risk-indicator risk-medium">Medium Risk</span>
+                        </div>
+                        <ul class="risk-factors">
+                            <li>Within 90 days of protected activity (complaint, leave request)</li>
+                            <li>Shortly after performance rating increased or promotion</li>
+                            <li>During or immediately after medical/family leave</li>
+                            <li>After whistleblowing or policy violation report</li>
+                        </ul>
+                    </div>
+
+                    <div class="risk-category">
+                        <div class="risk-category-header">
+                            <h3>Comparator Treatment</h3>
+                            <span class="risk-indicator risk-high">High Risk</span>
+                        </div>
+                        <ul class="risk-factors">
+                            <li>Similarly situated employees treated differently</li>
+                            <li>Inconsistent application of performance standards</li>
+                            <li>Disparate discipline for same conduct</li>
+                            <li>Pattern of terminating specific demographic groups</li>
+                        </ul>
+                    </div>
+
+                    <div class="risk-category">
+                        <div class="risk-category-header">
+                            <h3>Procedural Compliance</h3>
+                            <span class="risk-indicator risk-medium">Medium Risk</span>
+                        </div>
+                        <ul class="risk-factors">
+                            <li>Progressive discipline policy followed</li>
+                            <li>Opportunity to improve provided and documented</li>
+                            <li>HR consulted before final decision</li>
+                            <li>Severance terms reviewed by counsel</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="implementation-box">
+                    <h3>How the Tool Works</h3>
+                    <ol class="implementation-steps">
+                        <li><strong>Pre-Decision Scoring:</strong> Manager completes assessment 48 hours before planned termination discussion</li>
+                        <li><strong>Risk Stratification:</strong> Automated scoring categorizes as Low (<20 points), Medium (20-35 points), or High Risk (>35 points)</li>
+                        <li><strong>Escalation Protocol:</strong> Medium risk = HR Director review; High risk = Legal counsel + remediation plan before proceeding</li>
+                        <li><strong>Documentation Requirements:</strong> Tool generates checklist of missing documentation that must be completed before termination</li>
+                        <li><strong>Decision Tracking:</strong> All assessments archived for pattern analysis and legal defensibility</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-label">The Measurable Outcomes</div>
+            <div class="section-content">
+                <p>After implementing this framework, the organization transformed termination decisions from reactive judgment calls into systematic, legally defensible processes:</p>
+                
+                <div class="outcome-metrics">
+                    <div class="metric-card">
+                        <div class="metric-number">0</div>
+                        <div class="metric-label">Claims Filed on Next 12 Terminations</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">45 min</div>
+                        <div class="metric-label">Legal Review Time (down from 8 hours)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">$180K+</div>
+                        <div class="metric-label">Estimated Litigation Cost Avoidance</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">67%</div>
+                        <div class="metric-label">Reduction in Manager Anxiety About Termination Decisions</div>
+                    </div>
+                </div>
+
+                <p style="margin-top: 2rem;">Beyond the direct cost savings, the framework created cultural benefits: managers gained confidence in addressing performance issues early (before termination became necessary), legal counsel shifted from firefighting to strategic advisement, and the leadership team could make difficult people decisions without fear of unexpected legal exposure.</p>
+
+                <p style="margin-top: 1rem; font-weight: 500;">Most importantly: the tool didn't slow down business decisions—it accelerated them by providing clarity on which terminations could proceed immediately versus which required additional documentation or process remediation.</p>
+            </div>
+        </div>
+
+        <div class="footer-note">
+            <p><strong>Dominique E. Thomas</strong> | Human Resources Leader and Advisor</p>
+            <p style="margin-top: 0.5rem;">This framework is available for implementation in your organization. Contact me to discuss adaptation to your specific risk profile and operational context.</p>
+        </div>
+    </div>
+</body>
+</html>
