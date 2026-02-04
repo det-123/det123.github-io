@@ -405,6 +405,28 @@ details[open] .accordionChevron{
   margin: 0;
 }
 
+.statementGrid{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 22px;
+}
+
+.statementCard{
+  background: rgba(154,107,90,0.06);
+  border: 1px solid rgba(154,107,90,0.25);
+  padding: 26px 22px;
+  text-align: center;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+@media (max-width: 980px){
+  .statementGrid{
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .footer{
   border-top: 1px solid var(--line2);
   padding: 22px 0;
